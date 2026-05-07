@@ -1,6 +1,10 @@
 Builds/
+JuceLibraryCode/
 DerivedData/
+*.xcodeproj/
+*.xcworkspace/
 *.component
 *.vst3
 *.app
 .DS_Store
+xcuserdata/

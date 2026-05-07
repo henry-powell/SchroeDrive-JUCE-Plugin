@@ -1,0 +1,6 @@
+Builds/
+DerivedData/
+*.component
+*.vst3
+*.app
+.DS_Store

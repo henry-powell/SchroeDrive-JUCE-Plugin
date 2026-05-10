@@ -46,7 +46,6 @@ private:
     // make an alias for the rather long SliderAttachment class name
     using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
     
-    // ERROR HERE didn't need override because it was not apart of the class
     void sliderValueChanged (juce::Slider* slider);
     
     // create SliderAttachment instances for each parameter
@@ -54,8 +53,6 @@ private:
     std::unique_ptr<SliderAttachment> mDecayAttachment;
     std::unique_ptr<SliderAttachment> mDampingAttachment;
     std::unique_ptr<SliderAttachment> mRingModAttachment;
-    
-    //ERROR HERE - missing semicolon at end of member declaration.
     std::unique_ptr<SliderAttachment> mOverdriveAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SchroeDistortionAudioProcessorEditor)

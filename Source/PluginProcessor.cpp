@@ -131,8 +131,6 @@ float SchroeDistortionAudioProcessor::processRingMod (float inputSample)
 
 {
     // get a sample from the LFO
-    
-    //ERROR HERE - function has to be called with parentheses.
     const auto lfoSample = mRingModLfo.processSample();
     // multiply the input sample by the LFO sample for ring modulation
     return inputSample * lfoSample;
@@ -141,7 +139,6 @@ float SchroeDistortionAudioProcessor::processRingMod (float inputSample)
 float SchroeDistortionAudioProcessor::processSoftClip (float inputSample)
 {
     // convert the overdrive amount from dB to linear gain
-    //ERROR HERE - decibelsToGain belongs to juce::Decibels, not just juce.
     const auto driveGain = juce::Decibels::decibelsToGain (mOverdrive);
 
     // use the tanh function to soft-clip the overdriven sample. we can divide by the tanh of the driveGain value to keep the magnitude of the clipped sample in check
@@ -210,8 +207,6 @@ float SchroeDistortionAudioProcessor::processAllPassFilter (juce::dsp::DelayLine
 }
 
 // this helper function does all the APVTS loading and assigns the values to member function variables. that way, we can just use the member variables in processBlock()
-
-//ERROR HERE - missing class that affected the processor member variables.
 void SchroeDistortionAudioProcessor::updateParameterValues()
 {
     // load the percent-based parameters and divide by 100 to convert to 0-1 range before assigning to our member variables.
@@ -238,8 +233,6 @@ void SchroeDistortionAudioProcessor::prepareToPlay (double sampleRate, int sampl
     spec.numChannels = 1;
 
     // since we're calling the size() method of std::array, declare the for loop variable as size_t. this is the standard unsigned integer type used in array indexing operations. these two loops do the conversion of our filter delay times in ms to samples so that we can initialize the DelayLine objects below.
-    
-    //ERROR HERE - missing a ) befor the simicolon
     for (size_t i = 0; i < mEarlyReflectionDelayTimesMs.size(); ++i)
         mEarlyReflectionDelayTimesSamples[i] = static_cast<int> (std::round ((mEarlyReflectionDelayTimesMs[i] / 1000.0f) * static_cast<float> (sampleRate)));
 

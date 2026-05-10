@@ -47,14 +47,11 @@ SchroeDistortionAudioProcessorEditor::SchroeDistortionAudioProcessorEditor (Schr
 
     mOverdriveLabel.setText ("Overdrive", juce::dontSendNotification);
     addAndMakeVisible (mOverdriveLabel);
-    
-    // ERROR HERE - mising &
     mOverdriveLabel.attachToComponent (&mOverdriveSlider, true);
     mOverdriveSlider.setTextValueSuffix (" dB");
     addAndMakeVisible (mOverdriveSlider);
 
     // create a SliderAttachment instance for each of our parameters. this will ensure that the Slider/ID combo that's passed in will be linked and automatically in sync.
-    // ERROR HERE - missing the processor class name
     mWetDryAttachment = std::make_unique<SliderAttachment> (audioProcessor.mParameters, SchroeDistortionAudioProcessor::wetDryId, mWetDrySlider);
     mDecayAttachment = std::make_unique<SliderAttachment> (audioProcessor.mParameters, SchroeDistortionAudioProcessor::decayId, mDecaySlider);
     mDampingAttachment = std::make_unique<SliderAttachment> (audioProcessor.mParameters, SchroeDistortionAudioProcessor::dampingId, mDampingSlider);
@@ -86,8 +83,6 @@ void SchroeDistortionAudioProcessorEditor::resized()
     // to keep things simple, we can just use hard-coded positions and sizes for the sliders
     mWetDrySlider.setBounds (140, 80, 300, 24);
     mDecaySlider.setBounds (140, 120, 300, 24);
-    
-    // ERROR HERE - missing , between 220 and 300
     mDampingSlider.setBounds (140, 160, 300, 24);
     mRingModFreqSlider.setBounds (140, 220, 300, 24);
     mOverdriveSlider.setBounds (140, 260, 300, 24);

@@ -81,9 +81,8 @@ private:
     
     // various helper functions for our main DSP processes
   
-    //ERRORH HERE - Return type can't be void because it has to match float in the PluginProcessor.cpp  
+
     float processRingMod (float inputSample);
-    
     float processSoftClip (float inputSample);
     float processRMEarlyReflections (float inputSample);
     float processCombFilter (juce::dsp::DelayLine<float>& delayLine, float& filterState, float inputSample, int delayTimeSamples, float feedbackGain);
@@ -102,8 +101,6 @@ private:
     float mRingModFreq;
     int mMaxEarlyReflectionDelayTimeSamples;
     int mMaxCombDelayTimeSamples;
-    
-    //ERROR HERE - Missing semicolon at the end of the member variable declaration.
     int mMaxAllPassDelayTimeSamples;
     
     // create arrays to hold the various delay times and gains for our early reflection stage, comb filter stage, and all-pass filter stage
@@ -124,14 +121,11 @@ private:
     
     // create arrays of DelayLine objects for the comb and all-pass filters
     std::array<juce::dsp::DelayLine<float>, numCombFilters> mCombDelayLines;
-    
-    //ERROR HERE - Used a semicolon instead of a comma inside the std::array template arguments.
     std::array<float, numCombFilters> mCombFilterStates;
     
     std::array<juce::dsp::DelayLine<float>, numAllPassFilters> mAllPassDelayLines;
 
     // make an LFO instance for our ring modulation
-    //ERROR HERE - Incorrect class name. Should be LFO instead of Lfo
     LFO mRingModLfo;
 
     //==============================================================================
